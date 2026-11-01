@@ -2,7 +2,7 @@
 
 **Repository:** [github.com/poluru-labs/fastapi-realworld-projects](https://github.com/poluru-labs/fastapi-realworld-projects)
 
-Hands-on **FastAPI** backends across three difficulty tracks (**58** project folders). Each app is self-contained with `app/`, `tests/`, `requirements.txt` / `pyproject.toml`, a `Dockerfile`, and a walkthrough README covering routes, validation, and common status codes. Many projects include **Pytest**, **Swagger** / **ReDoc**, and (on advanced apps) **Docker Compose**, **Postgres**, and **Alembic**. **MIT** license.
+Hands-on **FastAPI** backends across three difficulty tracks (**72** project folders: **25** beginner, **25** intermediate, **22** advanced including `starter`). Each app is self-contained with `app/`, `tests/`, `pyproject.toml` (and often `requirements.txt`), a `Dockerfile`, and a project README with routes, auth headers, and walkthroughs. Most samples expose long-form **OpenAPI** narratives in `app/main.py`, plus **Swagger** / **ReDoc**, **Pytest**, and **Ruff**. Advanced apps add async SQLAlchemy, **Alembic**, optional **Docker Compose** (Postgres), and domain-specific patterns (tenancy, WebSockets, billing, policy engines, and more). **MIT** license.
 
 Part of the [Free UI Templates](../README.md) catalog.
 
@@ -10,11 +10,11 @@ Part of the [Free UI Templates](../README.md) catalog.
 
 | Track | Folder | Count | Focus |
 | --- | --- | ---: | --- |
-| Beginner | `beginner/` | 22 | Versioned `/api/v1` CRUD, Pydantic validation, in-memory repos, Pytest |
-| Intermediate | `intermediate/` | 20 | JWT auth, publishing workflows, chat, jobs, imports, richer domain rules |
-| Advanced | `advanced/` | 16 (+ `starter`) | Multitenancy, WebSockets, billing, schedulers, event sourcing, IoT |
+| Beginner | `beginner/` | 25 | Versioned `/api/v1`, Pydantic validation, in-memory or SQLite repos, Pytest |
+| Intermediate | `intermediate/` | 25 | JWT (and API keys where noted), publishing workflows, integrations, richer domain rules |
+| Advanced | `advanced/` | 22 | Multitenancy, realtime, schedulers, event sourcing, identity/RAG/agent orchestration, `starter` scaffold |
 
-Work inside one project folder — there is no root monorepo `package.json` / shared install.
+Work inside one project folder — there is no root monorepo install; copy `advanced/starter` when bootstrapping a new advanced service.
 
 ## Beginner projects
 
@@ -24,7 +24,7 @@ Work inside one project folder — there is no root monorepo `package.json` / sh
 | `fastapi-todo` | Todos with filters and complete/reopen |
 | `fastapi-notes` | Notes CRUD |
 | `fastapi-bookmarks` | Bookmarks |
-| `fastapi-recipes` | Recipe Box — filters, cuisines, featured flag |
+| `fastapi-recipes` | Recipe box — filters, cuisines, featured flag |
 | `fastapi-book-catalog` | Book catalog |
 | `fastapi-product-catalog` | Product catalog |
 | `fastapi-contact-book` | Contacts |
@@ -42,21 +42,24 @@ Work inside one project folder — there is no root monorepo `package.json` / sh
 | `fastapi-unit-converter` | Unit converter |
 | `fastapi-text-analyzer` | Text analysis |
 | `fastapi-calculator-mock` | Calculator mock |
+| `fastapi-file-upload` | Multipart uploads, size limits |
+| `fastapi-image-metadata` | Image metadata (Pillow) |
+| `fastapi-weather` | Locations, current/forecast weather |
 
-Typical beginner layout: `app/main.py`, `core/`, `api/v1/endpoints/`, `schemas/`, `repositories/`, `services/`, plus `tests/api/v1/`.
+Typical layout: `app/main.py`, `core/`, `api/v1/endpoints/`, `schemas/`, `repositories/`, `services/`, `tests/api/v1/`.
 
 ## Intermediate projects
 
 | Folder | Theme |
 | --- | --- |
 | `authentication-services` | Auth-focused service patterns |
-| `fastapi-blog` | JWT login, drafts vs published (404 hiding), comments |
+| `fastapi-blog` | JWT, drafts vs published (404 hiding), comments |
 | `fastapi-ecommerce` | Commerce flows |
 | `fastapi-inventory` | Inventory |
 | `fastapi-job-board` | Job board |
 | `fastapi-helpdesk` | Helpdesk / tickets |
-| `fastapi-team-tasks` | Team tasks |
-| `fastapi-subscriptions` | Subscriptions |
+| `fastapi-team-tasks` | Team tasks, platform vs team roles |
+| `fastapi-subscriptions` | Subscriptions and plans |
 | `fastapi-appointments` | Appointments |
 | `fastapi-event-registration` | Event registration |
 | `fastapi-restaurant-orders` | Restaurant orders |
@@ -69,32 +72,42 @@ Typical beginner layout: `app/main.py`, `core/`, `api/v1/endpoints/`, `schemas/`
 | `fastapi-csv-import` | CSV import |
 | `fastapi-media-processing` | Media processing |
 | `fastapi-report-generator` | Report generation |
+| `fastapi-api-aggregator` | JWT, sources, parallel mock aggregates, idempotency |
+| `fastapi-api-keys` | Hashed API keys, scopes, JWT or `X-Api-Key` |
+| `fastapi-document-library` | Folders, documents, publish/revisions, search |
+| `fastapi-feature-flags` | Rollouts, allowlists, runtime evaluate token |
+| `fastapi-uptime-monitor` | Mock probes, pause, public status pages |
 
 ## Advanced projects
 
 | Folder | Theme |
 | --- | --- |
-| `fastapi-multitenant-saas` | Tenants via `X-Tenant-Slug`, roles, plan limits, Postgres/Alembic |
+| `starter` | Lean advanced scaffold (health, Alembic, async SQLAlchemy) |
+| `fastapi-multitenant-saas` | JWT + `X-Tenant-Slug`, roles, plan limits |
+| `fastapi-multitenant-rag` | Tenant-scoped RAG ingest, chunking, query |
+| `fastapi-policy-authorization` | RBAC/ABAC rules, `/policy/evaluate`, protected documents |
+| `fastapi-identity-gateway` | OAuth-style clients, token, userinfo, introspection |
+| `fastapi-agent-workflows` | Agent/tool step workflows, idempotent runs |
+| `fastapi-code-execution` | Sandbox policy, runner key, idempotent code runs |
+| `fastapi-experimentation` | A/B experiments, assignments, idempotent events |
+| `fastapi-workflow-engine` | Workflow definitions, instances, transitions |
 | `fastapi-distributed-chat` | Distributed chat |
 | `fastapi-distributed-orders` | Distributed orders |
 | `fastapi-distributed-scheduler` | Distributed scheduler |
 | `fastapi-collaborative-editor` | Collaborative editing |
-| `fastapi-realtime-analytics` | Realtime analytics |
+| `fastapi-realtime-analytics` | Streams, metrics, alerts |
 | `fastapi-event-sourced-wallet` | Event-sourced wallet |
-| `fastapi-workflow-engine` | Workflow engine |
 | `fastapi-webhook-delivery` | Webhook delivery |
-| `fastapi-usage-billing` | Usage billing |
+| `fastapi-usage-billing` | Usage meters, subscriptions, invoices |
 | `fastapi-ticket-booking` | Ticket booking |
-| `fastapi-rate-limiter` | Rate limiting |
-| `fastapi-resumable-files` | Resumable uploads |
-| `fastapi-location-tracking` | Location tracking |
-| `fastapi-iot-telemetry` | IoT telemetry |
-| `fastapi-experimentation` | Experimentation / feature flags |
-| `starter` | Advanced starter scaffold |
+| `fastapi-rate-limiter` | Rate limits and client policies |
+| `fastapi-resumable-files` | Resumable multipart uploads |
+| `fastapi-location-tracking` | Trackers, geofences, trails |
+| `fastapi-iot-telemetry` | Devices, telemetry, alerts |
 
 ## Getting started
 
-Python 3.11+ recommended (check each project’s `pyproject.toml`).
+Python **3.11+** (see each project’s `pyproject.toml`).
 
 ```bash
 git clone https://github.com/poluru-labs/fastapi-realworld-projects.git
@@ -102,25 +115,27 @@ cd fastapi-realworld-projects/beginner/fastapi-recipes
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
-cp .env.example .env        # when the file exists
+cp .env.example .env        # when present
 uvicorn app.main:app --reload
 ```
 
 | URL / command | Purpose |
 | --- | --- |
-| http://127.0.0.1:8000/docs | Swagger UI |
+| http://127.0.0.1:8000/docs | Swagger UI (read `app/main.py` description block too) |
 | http://127.0.0.1:8000/redoc | ReDoc |
-| `pytest -v` | Run the project’s tests |
-| `docker build -t fastapi-recipes .` then `docker run --rm -p 8000:8000 fastapi-recipes` | Containerized run |
-
-Advanced apps with databases often use `docker-compose.yml` (Postgres) and Alembic migrations — follow that folder’s README.
+| `pytest -v` | Project tests (often in-memory SQLite in `tests/conftest.py`) |
+| `ruff check app tests` | Lint (Alembic versions often excluded) |
+| `alembic upgrade head` | Apply migrations (advanced / DB-backed apps) |
+| `python -m scripts.seed_data` | Seed demo data when the project provides it |
+| `docker compose up --build` | Postgres + API on many advanced samples |
 
 ## What you practice
 
-- FastAPI routers under `/api/v1`, Pydantic models, and OpenAPI examples
-- Layered design: endpoints → services → repositories
-- Clear HTTP semantics (`401` / `403` / `404` / `409` / `422`)
-- Auth (JWT + refresh), tenancy headers, background work, and realtime patterns as you move up tracks
+- Routers under `/api/v1`, Pydantic models, and OpenAPI tags plus long API descriptions
+- Layered design: endpoints → services → repositories; `AppError` → `{"detail": "..."}`
+- HTTP semantics (`401` / `403` / `404` / `409` / `413` / `422`)
+- Auth patterns: JWT, refresh rotation, API keys, admin/runner keys, tenant headers, OAuth-shaped tokens
+- Data: async SQLAlchemy, Alembic, seeds, idempotency headers, background and realtime patterns on higher tracks
 
 ## License
 
