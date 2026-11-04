@@ -2,7 +2,7 @@
 
 **Repository:** [github.com/poluru-labs/enterprise-react-free-ai-web-templates](https://github.com/poluru-labs/enterprise-react-free-ai-web-templates)
 
-Production-shaped **React** templates for AI dashboards, ops consoles, and admin workspaces. **36** folders — **35** are independent **Vite** apps with **`@poluru-labs/enterprise-design-system-react`**, mock data under `src/data/`, and **Vitest** where included. **MIT** license.
+Production-shaped **React** templates for AI dashboards, ops consoles, and admin workspaces. **45** template folders — **44** are independent **Vite** apps with **Bootstrap 5**, **`@poluru-labs/enterprise-design-system-react`**, mock data under `src/data/`, and **Vitest** where included. Nine recent **Bootstrap** desk demos (AuditDesk through MaintDesk) use dedicated dev ports **5207–5215**. **MIT** license.
 
 Part of the [Free UI Templates](../README.md) catalog.
 
@@ -26,18 +26,37 @@ Part of the [Free UI Templates](../README.md) catalog.
 | `ai-synthetic-data-studio` | Poluru Synth Studio | Synthetic data, privacy, TSTR evals | 5194 |
 | `enterprise-dashboard` | Poluru DC | Facilities, power, capacity, tickets (React 19 + TS) | 5173 |
 
-Several apps share Vite’s default **5173** — start those one at a time, or pass `--port` to `npm run dev`. Prism uses hash routes (`#/overview`).
+Several apps share Vite’s default **5173** — start those one at a time, or pass `--port` to `npm run dev`. Prism uses hash routes (`#/overview`). The nine **Desk** demos (`ai-accessibility-auditor` … `ai-open-source-maintainer-workspace`) default to **5207–5215** (see each folder’s README).
+
+| Folder | Product | Dev port |
+| --- | --- | ---: |
+| `ai-accessibility-auditor` | AuditDesk | 5207 |
+| `ai-algorithmic-fairness-auditor` | ParityDesk | 5208 |
+| `ai-assistive-learning-platform` | LearnDesk | 5209 |
+| `ai-citation-verification-console` | CiteDesk | 5210 |
+| `ai-data-provenance-explorer` | ProvDesk | 5211 |
+| `ai-dataset-quality-inspector` | QualDesk | 5212 |
+| `ai-disaster-resource-coordinator` | ReliefDesk | 5213 |
+| `ai-inference-benchmarking-lab` | BenchDesk | 5214 |
+| `ai-open-source-maintainer-workspace` | MaintDesk | 5215 |
 
 ## All template folders
 
 | Folder | Product / title | Status |
 | --- | --- | --- |
+| `ai-accessibility-auditor` | AuditDesk | App |
 | `ai-agent-builder-studio` | Agent Builder Studio | App |
 | `ai-agent-monitoring-dashboard` | AgentPulse | App |
+| `ai-algorithmic-fairness-auditor` | ParityDesk | App |
 | `ai-api-gateway-dashboard` | API Gateway (starter shell) | App |
+| `ai-assistive-learning-platform` | LearnDesk | App |
+| `ai-citation-verification-console` | CiteDesk | App |
 | `ai-computer-vision-dashboard` | Sightline | App |
 | `ai-content-moderation-dashboard` | ReviewBay | App |
 | `ai-data-pipeline-dashboard` | Conduit | App |
+| `ai-data-provenance-explorer` | ProvDesk | App |
+| `ai-dataset-quality-inspector` | QualDesk | App |
+| `ai-disaster-resource-coordinator` | ReliefDesk | App |
 | `ai-document-processing-dashboard` | Pagewise | App |
 | `ai-document-rag-dashboard` | Contextly | App |
 | `ai-edge-inference-dashboard` | CareLine / edge inference | App |
@@ -48,6 +67,7 @@ Several apps share Vite’s default **5173** — start those one at a time, or p
 | `ai-governance-compliance-dashboard` | Charter | App |
 | `ai-healthcare-operations-dashboard` | ClinicPulse | App |
 | `ai-human-in-the-loop-workspace` | ReviewLoop | App |
+| `ai-inference-benchmarking-lab` | BenchDesk | App |
 | `ai-knowledge-base-dashboard` | KnowPulse | App |
 | `ai-legal-contract-intelligence-dashboard` | ContractPulse | App |
 | `ai-llm-ops-dashboard` | Poluru LLM Ops | App |
@@ -55,6 +75,7 @@ Several apps share Vite’s default **5173** — start those one at a time, or p
 | `ai-marketing-intelligence-dashboard` | Marketing Intelligence | App |
 | `ai-ml-training-dashboard` | Kiln | App |
 | `ai-model-evaluation-dashboard` | Prism | App |
+| `ai-open-source-maintainer-workspace` | MaintDesk | App |
 | `ai-personalization-dashboard` | Personalization | App |
 | `ai-prompt-management-dashboard` | Prompt Bureau | App |
 | `ai-recommendation-engine-dashboard` | Recommendation Engine | App |
@@ -99,7 +120,7 @@ Most templates share:
 
 - React 18 + React Router 6 (**Poluru DC** uses React 19, Router 7, and TypeScript)
 - Vite
-- Bootstrap 5 + Bootstrap Icons (**Poluru DC** uses SCSS instead of Bootstrap)
+- Bootstrap 5 + Bootstrap Icons (**Poluru DC** uses SCSS instead of Bootstrap; newer Desk demos use Roboto + Lato with light branded themes)
 - [`@poluru-labs/enterprise-design-system-react`](https://www.npmjs.com/package/@poluru-labs/enterprise-design-system-react)
 - Vitest + Testing Library + jsdom
 
